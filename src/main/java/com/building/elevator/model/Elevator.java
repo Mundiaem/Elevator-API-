@@ -2,9 +2,15 @@ package com.building.elevator.model;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "elevator_movements")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Elevator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,38 +21,7 @@ public class Elevator {
     private Direction currentDirection;
     @Column(name = "currentState")
     private State currentState;
-    @Column(name = "totalNoOfFloors")
-    int totalNoOfFloors;
 
-    public int getCurrentFloor() {
-        return currentFloor;
-    }
 
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
-    }
 
-    public Direction getCurrentDirection() {
-        return currentDirection;
-    }
-
-    public void setCurrentDirection(Direction currentDirection) {
-        this.currentDirection = currentDirection;
-    }
-
-    public State getCurrentState() {
-        return currentState;
-    }
-
-    public void setCurrentState(State currentState) {
-        this.currentState = currentState;
-    }
-
-    public int getTotalNoOfFloors() {
-        return totalNoOfFloors;
-    }
-
-    public void setTotalNoOfFloors(int totalNoOfFloors) {
-        this.totalNoOfFloors = totalNoOfFloors;
-    }
 }

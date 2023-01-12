@@ -1,5 +1,6 @@
 package com.building.elevator.controller;
 
+import com.building.elevator.VO.BuildingResponseTemplateVO;
 import com.building.elevator.model.Building;
 import com.building.elevator.model.Elevator;
 import com.building.elevator.repository.ElevatorRepository;
@@ -27,20 +28,19 @@ public class ElevatorController {
     private final AtomicInteger counter = new AtomicInteger();
 
     @Autowired
-    private  BuildingService buildingService;
+    private BuildingService buildingService;
     @PostMapping("/configure_floor")
-    @Operation(summary = "configure number of floors ", tags = {"Elevator",},
+    @Operation(summary = "configure number of floors ", tags = {"BuildingResponseTemplateVO",},
             responses = {
                     @ApiResponse(responseCode = "200",
                             description = "Returns all number of floors",
                             content = @Content(mediaType = "application/json",
-                                    schema = @Schema(implementation = Elevator.class)))
+                                    schema = @Schema(implementation = BuildingResponseTemplateVO.class)))
             })
-   public Building configureNumberOfFloors(@RequestBody Building floors){
-      return buildingService.save(floors.getTotalNoOfFloors());
+   public BuildingResponseTemplateVO configureNumberOfFloors(@RequestBody Building floors){
+      return buildingService.checkThenInsert(floors );
 
    }
-
 
     @GetMapping(value = "/elevators", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     @Operation(summary = "Returns all elevators", tags = {"Elevator",},

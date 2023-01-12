@@ -31,7 +31,7 @@ public class SwaggerConfig {
                 .builder()
                 .group("Elevator API")
                 .packagesToScan(packagesToScan)
-                .pathsToMatch("/users/**")
+                .pathsToMatch("/v1/api/**")
                 .addOpenApiCustomiser(bearerAuthCustomizer())
                 .addOpenApiCustomiser(tagsSorterCustomizer())
                 .addOpenApiCustomiser(userApiCustomizer())
@@ -41,7 +41,7 @@ public class SwaggerConfig {
     private OpenApiCustomiser userApiCustomizer() {
         return openAPI -> openAPI
                 .info(new Info()
-                        .title("Springboot & OpenAPI")
+                        .title("Elevator  API")
                         .description("Elevator API documentation with OPENAPI")
                         .version("3.0.0")
                         .contact(new Contact()

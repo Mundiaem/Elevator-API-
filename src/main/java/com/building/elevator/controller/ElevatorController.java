@@ -1,7 +1,9 @@
 package com.building.elevator.controller;
 
+import com.building.elevator.model.Building;
 import com.building.elevator.model.Elevator;
 import com.building.elevator.repository.ElevatorRepository;
+import com.building.elevator.services.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -18,17 +20,27 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Tag(description = "Elevator API", name = "Elevator Services")
-@Controller
+@RestController
+@RequestMapping(value = "/v1/api")
 public class ElevatorController {
 
     private final AtomicInteger counter = new AtomicInteger();
 
-    private final ElevatorRepository elevatorRepository;
-
     @Autowired
-    public ElevatorController(ElevatorRepository userRepository) {
-        this.elevatorRepository = userRepository;
-    }
+    private  BuildingService buildingService;
+    @PostMapping("/configure_floor")
+    @Operation(summary = "configure number of floors ", tags = {"Elevator",},
+            responses = {
+                    @ApiResponse(responseCode = "200",
+                            description = "Returns all number of floors",
+                            content = @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = Elevator.class)))
+            })
+   public Building configureNumberOfFloors(@RequestBody Building floors){
+      return buildingService.save(floors.getTotalNoOfFloors());
+
+   }
+
 
     @GetMapping(value = "/elevators", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     @Operation(summary = "Returns all elevators", tags = {"Elevator",},

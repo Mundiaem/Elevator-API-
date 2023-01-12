@@ -10,17 +10,17 @@ import org.springframework.scheduling.annotation.Scheduled;
 @ComponentScan
 public class AddJobWorker {
     @Autowired
-    private ElevatorServices elevator;
+    private ElevatorServices elevatorServices;
     private Request request;
 
-    AddJobWorker(Request request) {
+    public AddJobWorker(Request request) {
         this.request = request;
     }
 
     @Scheduled(fixedRate = 2000)
     @Async
     public void run() {
-        elevator.addJob(request);
+        elevatorServices.addJob(request);
     }
 
 }

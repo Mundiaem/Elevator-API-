@@ -1,6 +1,7 @@
 package com.building.elevator.services;
 
 import com.building.elevator.VO.BuildingResponseTemplateVO;
+import com.building.elevator.VO.ConfigureTemplateVO;
 import com.building.elevator.model.Building;
 import com.building.elevator.repository.BuildingRepository;
 import com.building.elevator.repository.ElevatorRepository;
@@ -30,20 +31,21 @@ public class BuildingService {
     public int getCountElevators(){
         return (int)elevatorRepository.count();
     }
-    public BuildingResponseTemplateVO checkThenInsert(Building building) {
+    public BuildingResponseTemplateVO checkThenInsert(ConfigureTemplateVO floor) {
         //log.info(String.format(" getUserWithDepartment in  @ %s", TAG));
         BuildingResponseTemplateVO vo = new BuildingResponseTemplateVO();
         if(getCount()>0){
             vo.setBuilding(buildingRepository.findAll().get(0));
             vo.setResponse_status("number of floors and elevators already configured");
         }else{
+            Building  building= new Building();
+            building.setTotalNoOfFloors(floor.getNoOfFloors());
             vo.setBuilding(save(building));
             vo.setResponse_status("Inserted the building floor and elevator configuration");
 
         }
         if(vo.getBuilding().getNoOfElevators() > getCountElevators()){
-            int insert_count= vo.getBuilding().getNoOfElevators()- getCountElevators();
-            elevatorServices.initializeElevators(insert_count);
+            elevatorServices.initializeElevators();
 
         }
         return vo;

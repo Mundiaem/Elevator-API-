@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Request implements Comparable<vo.Request> {
+public class Request implements Comparable<Request> {
     private InternalRequestTemplateVO internalRequest;
     private ExternalRequestTemplateVO externalRequest;
     @Override
-    public int compareTo(vo.Request req) {
+    public int compareTo(Request req) {
         if (this.getInternalRequest().getDestinationFloor() == req.getInternalRequest().getDestinationFloor())
             return 0;
         else if (this.getInternalRequest().getDestinationFloor() > req.getInternalRequest().getDestinationFloor())

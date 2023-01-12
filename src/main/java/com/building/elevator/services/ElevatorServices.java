@@ -1,15 +1,18 @@
 package com.building.elevator.services;
 
+import com.building.elevator.VO.CallElevatorTemplateVO;
 import com.building.elevator.VO.Request;
-import com.building.elevator.VO.vo;
+import com.building.elevator.VO.InternalRequestTemplateVO;
+import com.building.elevator.VO.ExternalRequestTemplateVO;
+
 import com.building.elevator.model.Direction;
 import com.building.elevator.model.Elevator;
 import com.building.elevator.model.State;
 import com.building.elevator.repository.ElevatorRepository;
+import com.building.elevator.tasks.AddJobWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
@@ -18,21 +21,16 @@ public class ElevatorServices {
     @Autowired
     private ElevatorRepository elevatorRepository;
 
-    public List<Elevator> saveElevators(List<Elevator> elevators) {
-        return elevatorRepository.saveAll(elevators);
+    public Elevator saveElevator(Elevator elevators) {
+        return elevatorRepository.save(elevators);
     }
 
-    public List<Elevator> initializeElevators(int elevatorCount) {
-        List<Elevator> elevators = new ArrayList<>();
-        while (elevatorCount > 0) {
-            Elevator elevator = new Elevator();
-            elevator.setCurrentDirection(Direction.UP);
-            elevator.setCurrentFloor(1);
-            elevator.setCurrentState(State.IDLE);
-            elevators.add(elevator);
-            elevatorCount--;
-        }
-        return saveElevators(elevators);
+    public Elevator initializeElevators() {
+        Elevator elevator = new Elevator();
+        elevator.setCurrentDirection(Direction.UP);
+        elevator.setCurrentFloor(1);
+        elevator.setCurrentState(State.IDLE);
+        return saveElevator(elevator);
     }
     public List<Elevator> findAll() {
         return elevatorRepository.findAll();
@@ -219,5 +217,50 @@ public class ElevatorServices {
 
         }
 
+    }
+    public void addJob(Request request) {
+        Elevator elevator= new Elevator();
+
+        if (elevator.getCurrentState() == State.IDLE) {
+            elevator.setCurrentState(State.MOVING);
+            elevator.setCurrentDirection(request.getExternalRequest().getDirectionToGo());
+            currentJobs.add(request);
+        } else if (elevator.getCurrentState() == State.MOVING) {
+
+            if (request.getExternalRequest().getDirectionToGo() != elevator.getCurrentDirection()) {
+                addtoPendingJobs(request);
+            } else if (request.getExternalRequest().getDirectionToGo() == elevator.getCurrentDirection()) {
+                if (elevator.getCurrentDirection() == Direction.UP
+                        && request.getInternalRequest().getDestinationFloor() < elevator.getCurrentFloor()
+                ) {
+                    addtoPendingJobs(request);
+                } else if (elevator.getCurrentDirection() == Direction.DOWN
+                        && request.getInternalRequest().getDestinationFloor() > elevator.getCurrentFloor()) {
+                    addtoPendingJobs(request);
+                } else {
+                    currentJobs.add(request);
+                }
+
+            }
+
+        }
+
+    }
+
+    public void addtoPendingJobs(Request request) {
+        if (request.getExternalRequest().getDirectionToGo() == Direction.UP) {
+            System.out.println("Add to pending up jobs");
+            upPendingJobs.add(request);
+        } else {
+            System.out.println("Add to pending down jobs");
+            downPendingJobs.add(request);
+        }
+    }
+
+    public void moveElevator(CallElevatorTemplateVO call){
+        ExternalRequestTemplateVO er = new ExternalRequestTemplateVO(Direction.UP, call.getSourceFloor());
+        InternalRequestTemplateVO ir = new InternalRequestTemplateVO(call.getDestinationFloor());
+        Request request1 = new Request(ir, er);
+        new AddJobWorker(request1);
     }
 }

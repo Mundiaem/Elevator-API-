@@ -3,6 +3,7 @@ package com.building.elevator.services;
 import com.building.elevator.VO.BuildingResponseTemplateVO;
 import com.building.elevator.model.Building;
 import com.building.elevator.repository.BuildingRepository;
+import com.building.elevator.repository.ElevatorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,13 @@ import org.springframework.stereotype.Service;
 public class BuildingService {
     @Autowired
     public BuildingRepository buildingRepository;
+
+    @Autowired
+    public ElevatorRepository elevatorRepository;
+
+    @Autowired
+    public ElevatorServices elevatorServices;
+
 
 
   public Building save(Building building){
@@ -19,7 +27,9 @@ public class BuildingService {
   public int getCount(){
       return (int)buildingRepository.count();
   }
-
+    public int getCountElevators(){
+        return (int)elevatorRepository.count();
+    }
     public BuildingResponseTemplateVO checkThenInsert(Building building) {
         //log.info(String.format(" getUserWithDepartment in  @ %s", TAG));
         BuildingResponseTemplateVO vo = new BuildingResponseTemplateVO();
@@ -29,6 +39,12 @@ public class BuildingService {
         }else{
             vo.setBuilding(save(building));
             vo.setResponse_status("Inserted the building floor and elevator configuration");
+
+        }
+        if(vo.getBuilding().getNoOfElevators() > getCountElevators()){
+            int insert_count= vo.getBuilding().getNoOfElevators()- getCountElevators();
+            elevatorServices.initializeElevators(insert_count);
+
         }
         return vo;
     }

@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Elevator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    Long elevator_id;
     @Column(name = "currentFloor")
     private int currentFloor;
     @Column(name = "currentDirection")

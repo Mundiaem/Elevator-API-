@@ -31,6 +31,8 @@ public class ElevatorServices {
         }
         return saveElevators(elevators);
     }
+    public List<Elevator> findAll() {
+        return elevatorRepository.findAll();
 
-
+    }
 }

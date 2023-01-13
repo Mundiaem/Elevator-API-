@@ -79,7 +79,7 @@ public class persistenceConfig {
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", springJpaHibernateDdlAuto);
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 
         return properties;
     }

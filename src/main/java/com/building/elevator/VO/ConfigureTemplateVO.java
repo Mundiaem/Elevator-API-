@@ -8,5 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ConfigureTemplateVO {
-   private int noOfFloors;
+    private int no_of_floors;
+    private int no_of_elevators;
 }

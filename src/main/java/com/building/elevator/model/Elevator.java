@@ -21,6 +21,9 @@ public class Elevator {
     private Direction currentDirection;
     @Column(name = "currentState")
     private State currentState;
+    @ManyToOne
+    @JoinColumn(name = "elevator_building_id")
+    private Building building;
 
 
 

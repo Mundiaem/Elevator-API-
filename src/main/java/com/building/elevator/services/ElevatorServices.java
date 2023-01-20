@@ -1,9 +1,6 @@
 package com.building.elevator.services;
 
-import com.building.elevator.VO.CallElevatorTemplateVO;
-import com.building.elevator.VO.Request;
-import com.building.elevator.VO.InternalRequestTemplateVO;
-import com.building.elevator.VO.ExternalRequestTemplateVO;
+import com.building.elevator.VO.*;
 
 import com.building.elevator.model.Direction;
 import com.building.elevator.model.Elevator;
@@ -32,8 +29,9 @@ public class ElevatorServices {
         elevator.setCurrentState(State.IDLE);
         return saveElevator(elevator);
     }
-    public List<Elevator> findAll() {
-        return elevatorRepository.findAll();
+    public ElevatorResponseTemplateVO findAll() {
+
+        return new ElevatorResponseTemplateVO(elevatorRepository.findAll(), "") ;
 
     }
     /**

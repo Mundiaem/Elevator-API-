@@ -1,209 +1,269 @@
-2023-01-20T11:44:29.772+03:00  INFO 5723 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-01-20T11:44:29.773+03:00  INFO 5723 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-01-20T11:44:29.775+03:00  INFO 5723 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2023-01-20T11:45:02.168+03:00 ERROR 5723 --- [http-nio-8081-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0] with root cause
-
-java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100) ~[na:na]
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106) ~[na:na]
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302) ~[na:na]
-	at java.base/java.util.Objects.checkIndex(Objects.java:359) ~[na:na]
-	at java.base/java.util.ArrayList.get(ArrayList.java:427) ~[na:na]
-	at com.building.elevator.services.BuildingService.getBuilding(BuildingService.java:50) ~[classes/:na]
-	at com.building.elevator.controller.ElevatorController.getBuildingConfiguration(ElevatorController.java:57) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1010) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:902) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705) ~[tomcat-embed-core-10.1.4.jar:6.0]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:884) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814) ~[tomcat-embed-core-10.1.4.jar:6.0]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.3.jar:6.0.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.4.jar:10.1.4]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-
-2023-01-20T11:46:58.974+03:00  INFO 5723 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:47:03.345+03:00  INFO 5778 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 5778 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
-2023-01-20T11:47:03.347+03:00  INFO 5778 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
-2023-01-20T11:47:03.896+03:00  INFO 5778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:47:03.897+03:00  INFO 5778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-20T11:47:03.953+03:00  INFO 5778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
-2023-01-20T11:47:04.168+03:00  INFO 5778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:47:04.169+03:00  INFO 5778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-01-20T11:47:04.186+03:00  INFO 5778 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:47:04.188+03:00  INFO 5778 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:47:04.189+03:00  INFO 5778 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JDBC repository interfaces.
-2023-01-20T11:47:04.380+03:00  INFO 5778 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-01-20T11:47:04.700+03:00  INFO 5778 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2023-01-20T11:47:04.709+03:00  INFO 5778 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-01-20T11:47:04.709+03:00  INFO 5778 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
-2023-01-20T11:47:04.782+03:00  INFO 5778 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-01-20T11:47:04.783+03:00  INFO 5778 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1365 ms
-2023-01-20T11:47:04.857+03:00  INFO 5778 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-20T11:47:04.898+03:00  INFO 5778 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-20T11:47:05.036+03:00  WARN 5778 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-20T11:47:05.287+03:00  INFO 5778 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-20T11:47:06.296+03:00  INFO 5778 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-20T11:47:06.304+03:00  INFO 5778 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:47:06.716+03:00  WARN 5778 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-20T11:47:07.501+03:00  INFO 5778 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2023-01-20T11:47:07.515+03:00  INFO 5778 --- [main] com.building.elevator.Server             : Started Server in 4.589 seconds (process running for 5.327)
-2023-01-20T11:48:18.900+03:00  INFO 5778 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:48:23.551+03:00  INFO 5805 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 5805 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
-2023-01-20T11:48:23.558+03:00  INFO 5805 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
-2023-01-20T11:48:24.141+03:00  INFO 5805 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:48:24.141+03:00  INFO 5805 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-20T11:48:24.210+03:00  INFO 5805 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 2 JPA repository interfaces.
-2023-01-20T11:48:24.440+03:00  INFO 5805 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:48:24.440+03:00  INFO 5805 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-01-20T11:48:24.458+03:00  INFO 5805 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:48:24.460+03:00  INFO 5805 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:48:24.461+03:00  INFO 5805 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 0 JDBC repository interfaces.
-2023-01-20T11:48:24.639+03:00  INFO 5805 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-01-20T11:48:24.954+03:00  INFO 5805 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-2023-01-20T11:48:24.963+03:00  INFO 5805 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-01-20T11:48:24.964+03:00  INFO 5805 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
-2023-01-20T11:48:25.036+03:00  INFO 5805 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-01-20T11:48:25.037+03:00  INFO 5805 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1384 ms
-2023-01-20T11:48:25.108+03:00  INFO 5805 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-20T11:48:25.151+03:00  INFO 5805 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-20T11:48:25.280+03:00  WARN 5805 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-20T11:48:25.535+03:00  INFO 5805 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-20T11:48:26.411+03:00  INFO 5805 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-20T11:48:26.419+03:00  INFO 5805 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:48:26.819+03:00  WARN 5805 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-20T11:48:27.804+03:00  INFO 5805 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-2023-01-20T11:48:27.815+03:00  INFO 5805 --- [main] com.building.elevator.Server             : Started Server in 4.715 seconds (process running for 5.378)
-2023-01-20T11:48:30.370+03:00  INFO 5805 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-01-20T11:48:30.370+03:00  INFO 5805 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2023-01-20T11:48:30.371+03:00  INFO 5805 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2023-01-20T11:49:09.606+03:00  INFO 5823 --- [main] c.e.springbootopenapi.ServerTests        : Starting ServerTests using Java 18.0.1.1 with PID 5823 (started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
-2023-01-20T11:49:09.608+03:00  INFO 5823 --- [main] c.e.springbootopenapi.ServerTests        : No active profile set, falling back to 1 default profile: "default"
-2023-01-20T11:49:10.247+03:00  INFO 5823 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:49:10.247+03:00  INFO 5823 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-20T11:49:10.461+03:00  INFO 5823 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 203 ms. Found 2 JPA repository interfaces.
-2023-01-20T11:49:10.830+03:00  INFO 5823 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:49:10.830+03:00  INFO 5823 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-01-20T11:49:10.847+03:00  INFO 5823 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:49:10.849+03:00  INFO 5823 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:49:10.849+03:00  INFO 5823 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 0 JDBC repository interfaces.
-2023-01-20T11:49:11.205+03:00  INFO 5823 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-01-20T11:49:11.364+03:00  INFO 5823 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-20T11:49:11.426+03:00  INFO 5823 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-20T11:49:11.636+03:00  WARN 5823 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-20T11:49:12.079+03:00  INFO 5823 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-20T11:49:13.371+03:00  INFO 5823 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-20T11:49:13.382+03:00  INFO 5823 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:49:14.015+03:00  WARN 5823 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-20T11:49:15.545+03:00  INFO 5823 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-01-20T11:49:15.545+03:00  INFO 5823 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-20T11:49:15.547+03:00  INFO 5823 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2023-01-20T11:49:15.669+03:00  INFO 5823 --- [main] c.e.springbootopenapi.ServerTests        : Started ServerTests in 6.435 seconds (process running for 7.862)
-2023-01-20T11:49:16.236+03:00  INFO 5823 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:50:06.359+03:00  INFO 5844 --- [main] c.e.springbootopenapi.ServerTests        : Starting ServerTests using Java 18.0.1.1 with PID 5844 (started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
-2023-01-20T11:50:06.362+03:00  INFO 5844 --- [main] c.e.springbootopenapi.ServerTests        : No active profile set, falling back to 1 default profile: "default"
-2023-01-20T11:50:06.953+03:00  INFO 5844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:50:06.953+03:00  INFO 5844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-20T11:50:07.162+03:00  INFO 5844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 200 ms. Found 2 JPA repository interfaces.
-2023-01-20T11:50:07.433+03:00  INFO 5844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:50:07.433+03:00  INFO 5844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-01-20T11:50:07.447+03:00  INFO 5844 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:50:07.448+03:00  INFO 5844 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:50:07.448+03:00  INFO 5844 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
-2023-01-20T11:50:07.695+03:00  INFO 5844 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-01-20T11:50:07.852+03:00  INFO 5844 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-20T11:50:07.906+03:00  INFO 5844 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-20T11:50:08.085+03:00  WARN 5844 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-20T11:50:08.481+03:00  INFO 5844 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-20T11:50:09.514+03:00  INFO 5844 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-20T11:50:09.523+03:00  INFO 5844 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:50:10.231+03:00  WARN 5844 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-20T11:50:11.762+03:00  INFO 5844 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-01-20T11:50:11.762+03:00  INFO 5844 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-20T11:50:11.763+03:00  INFO 5844 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-01-20T11:50:11.884+03:00  INFO 5844 --- [main] c.e.springbootopenapi.ServerTests        : Started ServerTests in 5.902 seconds (process running for 6.999)
-2023-01-20T11:50:12.445+03:00  INFO 5844 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:50:34.687+03:00  INFO 5853 --- [main] c.e.springbootopenapi.ServerTests        : Starting ServerTests using Java 18.0.1.1 with PID 5853 (started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
-2023-01-20T11:50:34.689+03:00  INFO 5853 --- [main] c.e.springbootopenapi.ServerTests        : No active profile set, falling back to 1 default profile: "default"
-2023-01-20T11:50:35.277+03:00  INFO 5853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:50:35.277+03:00  INFO 5853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-20T11:50:35.417+03:00  INFO 5853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132 ms. Found 2 JPA repository interfaces.
-2023-01-20T11:50:35.688+03:00  INFO 5853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:50:35.689+03:00  INFO 5853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-01-20T11:50:35.703+03:00  INFO 5853 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:50:35.704+03:00  INFO 5853 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:50:35.704+03:00  INFO 5853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
-2023-01-20T11:50:35.946+03:00  INFO 5853 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-01-20T11:50:36.125+03:00  INFO 5853 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-20T11:50:36.180+03:00  INFO 5853 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-20T11:50:36.359+03:00  WARN 5853 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-20T11:50:36.792+03:00  INFO 5853 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-20T11:50:37.851+03:00  INFO 5853 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-20T11:50:37.860+03:00  INFO 5853 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:50:38.452+03:00  WARN 5853 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-20T11:50:40.105+03:00  INFO 5853 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-01-20T11:50:40.105+03:00  INFO 5853 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-20T11:50:40.107+03:00  INFO 5853 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-01-20T11:50:40.241+03:00  INFO 5853 --- [main] c.e.springbootopenapi.ServerTests        : Started ServerTests in 5.897 seconds (process running for 6.967)
-2023-01-20T11:50:40.858+03:00  INFO 5853 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:50:53.704+03:00  INFO 5860 --- [main] c.e.springbootopenapi.ServerTests        : Starting ServerTests using Java 18.0.1.1 with PID 5860 (started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
-2023-01-20T11:50:53.706+03:00  INFO 5860 --- [main] c.e.springbootopenapi.ServerTests        : No active profile set, falling back to 1 default profile: "default"
-2023-01-20T11:50:54.341+03:00  INFO 5860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:50:54.341+03:00  INFO 5860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-01-20T11:50:54.524+03:00  INFO 5860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 174 ms. Found 2 JPA repository interfaces.
-2023-01-20T11:50:54.808+03:00  INFO 5860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2023-01-20T11:50:54.809+03:00  INFO 5860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-01-20T11:50:54.824+03:00  INFO 5860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:50:54.825+03:00  INFO 5860 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2023-01-20T11:50:54.825+03:00  INFO 5860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
-2023-01-20T11:50:55.068+03:00  INFO 5860 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-01-20T11:50:55.231+03:00  INFO 5860 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-01-20T11:50:55.288+03:00  INFO 5860 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-01-20T11:50:55.446+03:00  WARN 5860 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-01-20T11:50:55.867+03:00  INFO 5860 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-01-20T11:50:56.938+03:00  INFO 5860 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-01-20T11:50:56.946+03:00  INFO 5860 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-01-20T11:50:57.598+03:00  WARN 5860 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-20T11:50:59.230+03:00  INFO 5860 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-01-20T11:50:59.230+03:00  INFO 5860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-01-20T11:50:59.232+03:00  INFO 5860 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2023-01-20T11:50:59.335+03:00  INFO 5860 --- [main] c.e.springbootopenapi.ServerTests        : Started ServerTests in 5.974 seconds (process running for 7.089)
-2023-01-20T11:50:59.905+03:00  INFO 5860 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T11:54:38.195+03:00  INFO 5966 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 5966 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T11:54:38.197+03:00  INFO 5966 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T11:54:38.679+03:00  INFO 5966 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T11:54:38.680+03:00  INFO 5966 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T11:54:38.739+03:00  INFO 5966 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2023-01-20T11:54:38.977+03:00  INFO 5966 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T11:54:38.978+03:00  INFO 5966 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T11:54:38.992+03:00  INFO 5966 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T11:54:38.993+03:00  INFO 5966 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T11:54:38.994+03:00  INFO 5966 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
+2023-01-20T11:54:39.174+03:00  INFO 5966 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T11:54:39.463+03:00  INFO 5966 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T11:54:39.471+03:00  INFO 5966 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T11:54:39.472+03:00  INFO 5966 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T11:54:39.540+03:00  INFO 5966 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T11:54:39.541+03:00  INFO 5966 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1284 ms
+2023-01-20T11:54:39.616+03:00  INFO 5966 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T11:54:39.655+03:00  INFO 5966 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T11:54:39.781+03:00  WARN 5966 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T11:54:40.006+03:00  INFO 5966 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T11:54:40.847+03:00  INFO 5966 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T11:54:40.854+03:00  INFO 5966 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T11:54:41.241+03:00  WARN 5966 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T11:54:42.103+03:00  INFO 5966 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T11:54:42.115+03:00  INFO 5966 --- [main] com.building.elevator.Server             : Started Server in 4.272 seconds (process running for 4.943)
+2023-01-20T11:55:10.536+03:00  INFO 5966 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T11:55:14.059+03:00  INFO 5983 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 5983 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T11:55:14.061+03:00  INFO 5983 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T11:55:14.522+03:00  INFO 5983 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T11:55:14.522+03:00  INFO 5983 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T11:55:14.573+03:00  INFO 5983 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
+2023-01-20T11:55:14.780+03:00  INFO 5983 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T11:55:14.782+03:00  INFO 5983 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T11:55:14.819+03:00  INFO 5983 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T11:55:14.822+03:00  INFO 5983 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T11:55:14.822+03:00  INFO 5983 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 0 JDBC repository interfaces.
+2023-01-20T11:55:15.076+03:00  INFO 5983 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T11:55:15.353+03:00  INFO 5983 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T11:55:15.363+03:00  INFO 5983 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T11:55:15.378+03:00  INFO 5983 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T11:55:15.461+03:00  INFO 5983 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T11:55:15.461+03:00  INFO 5983 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1355 ms
+2023-01-20T11:55:15.529+03:00  INFO 5983 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T11:55:15.562+03:00  INFO 5983 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T11:55:15.676+03:00  WARN 5983 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T11:55:15.909+03:00  INFO 5983 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T11:55:16.728+03:00  INFO 5983 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T11:55:16.740+03:00  INFO 5983 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T11:55:17.189+03:00  WARN 5983 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T11:55:18.086+03:00  INFO 5983 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T11:55:18.099+03:00  INFO 5983 --- [main] com.building.elevator.Server             : Started Server in 4.405 seconds (process running for 5.027)
+2023-01-20T12:06:29.380+03:00  INFO 5983 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:06:34.708+03:00  INFO 6191 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 6191 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:06:34.710+03:00  INFO 6191 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:06:35.220+03:00  INFO 6191 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:06:35.221+03:00  INFO 6191 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:06:35.322+03:00  INFO 6191 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 87 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:06:35.586+03:00  INFO 6191 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:06:35.586+03:00  INFO 6191 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:06:35.598+03:00  INFO 6191 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:06:35.599+03:00  INFO 6191 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:06:35.600+03:00  INFO 6191 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:06:35.787+03:00  INFO 6191 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:06:36.065+03:00  INFO 6191 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T12:06:36.073+03:00  INFO 6191 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T12:06:36.074+03:00  INFO 6191 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T12:06:36.156+03:00  INFO 6191 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T12:06:36.156+03:00  INFO 6191 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1390 ms
+2023-01-20T12:06:36.260+03:00  INFO 6191 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:06:36.309+03:00  INFO 6191 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:06:36.444+03:00  WARN 6191 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:06:36.687+03:00  INFO 6191 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:06:37.702+03:00  INFO 6191 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:06:37.709+03:00  INFO 6191 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:06:38.159+03:00  WARN 6191 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:06:38.975+03:00  INFO 6191 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T12:06:38.988+03:00  INFO 6191 --- [main] com.building.elevator.Server             : Started Server in 4.772 seconds (process running for 5.563)
+2023-01-20T12:08:46.538+03:00  INFO 6191 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:08:51.279+03:00  INFO 6228 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 6228 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:08:51.281+03:00  INFO 6228 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:08:51.802+03:00  INFO 6228 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:08:51.803+03:00  INFO 6228 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:08:51.861+03:00  INFO 6228 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:08:52.072+03:00  INFO 6228 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:08:52.073+03:00  INFO 6228 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:08:52.085+03:00  INFO 6228 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:08:52.086+03:00  INFO 6228 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:08:52.086+03:00  INFO 6228 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:08:52.274+03:00  INFO 6228 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:08:52.634+03:00  INFO 6228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T12:08:52.650+03:00  INFO 6228 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T12:08:52.651+03:00  INFO 6228 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T12:08:52.728+03:00  INFO 6228 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T12:08:52.728+03:00  INFO 6228 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1387 ms
+2023-01-20T12:08:52.806+03:00  INFO 6228 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:08:52.846+03:00  INFO 6228 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:08:52.956+03:00  WARN 6228 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:08:53.212+03:00  INFO 6228 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:08:54.393+03:00  INFO 6228 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:08:54.404+03:00  INFO 6228 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:08:55.349+03:00  WARN 6228 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:08:56.391+03:00  INFO 6228 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T12:08:56.411+03:00  INFO 6228 --- [main] com.building.elevator.Server             : Started Server in 5.505 seconds (process running for 6.19)
+2023-01-20T12:09:07.278+03:00  INFO 6228 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20T12:09:07.278+03:00  INFO 6228 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-20T12:09:07.280+03:00  INFO 6228 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-20T12:09:08.226+03:00  INFO 6228 --- [http-nio-8081-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 304 ms
+2023-01-20T12:10:14.270+03:00  INFO 6228 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:10:18.775+03:00  INFO 6268 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 6268 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:10:18.777+03:00  INFO 6268 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:10:19.392+03:00  INFO 6268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:10:19.392+03:00  INFO 6268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:10:19.448+03:00  INFO 6268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:10:19.665+03:00  INFO 6268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:10:19.665+03:00  INFO 6268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:10:19.677+03:00  INFO 6268 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:10:19.678+03:00  INFO 6268 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:10:19.679+03:00  INFO 6268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:10:19.856+03:00  INFO 6268 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:10:20.129+03:00  INFO 6268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T12:10:20.137+03:00  INFO 6268 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T12:10:20.137+03:00  INFO 6268 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T12:10:20.206+03:00  INFO 6268 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T12:10:20.207+03:00  INFO 6268 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1375 ms
+2023-01-20T12:10:20.283+03:00  INFO 6268 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:10:20.325+03:00  INFO 6268 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:10:20.431+03:00  WARN 6268 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:10:20.663+03:00  INFO 6268 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:10:21.600+03:00  INFO 6268 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:10:21.608+03:00  INFO 6268 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:10:21.984+03:00  WARN 6268 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:10:22.748+03:00  INFO 6268 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T12:10:22.760+03:00  INFO 6268 --- [main] com.building.elevator.Server             : Started Server in 4.328 seconds (process running for 4.824)
+2023-01-20T12:11:26.839+03:00  INFO 6268 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:11:31.265+03:00  INFO 6290 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 6290 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:11:31.267+03:00  INFO 6290 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:11:31.802+03:00  INFO 6290 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:11:31.802+03:00  INFO 6290 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:11:31.861+03:00  INFO 6290 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:11:32.079+03:00  INFO 6290 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:11:32.079+03:00  INFO 6290 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:11:32.092+03:00  INFO 6290 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:11:32.093+03:00  INFO 6290 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:11:32.093+03:00  INFO 6290 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:11:32.278+03:00  INFO 6290 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:11:32.572+03:00  INFO 6290 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T12:11:32.580+03:00  INFO 6290 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T12:11:32.580+03:00  INFO 6290 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T12:11:32.649+03:00  INFO 6290 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T12:11:32.650+03:00  INFO 6290 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1324 ms
+2023-01-20T12:11:32.725+03:00  INFO 6290 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:11:32.764+03:00  INFO 6290 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:11:32.869+03:00  WARN 6290 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:11:33.110+03:00  INFO 6290 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:11:34.200+03:00  INFO 6290 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:11:34.209+03:00  INFO 6290 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:11:34.741+03:00  WARN 6290 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:11:35.641+03:00  INFO 6290 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T12:11:35.656+03:00  INFO 6290 --- [main] com.building.elevator.Server             : Started Server in 4.743 seconds (process running for 5.453)
+2023-01-20T12:11:38.459+03:00  INFO 6290 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20T12:11:38.460+03:00  INFO 6290 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-20T12:11:38.461+03:00  INFO 6290 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-20T12:11:39.274+03:00  INFO 6290 --- [http-nio-8081-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 414 ms
+2023-01-20T12:12:28.429+03:00  INFO 6290 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:12:33.229+03:00  INFO 6310 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 6310 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:12:33.231+03:00  INFO 6310 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:12:33.754+03:00  INFO 6310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:12:33.755+03:00  INFO 6310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:12:33.810+03:00  INFO 6310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:12:34.053+03:00  INFO 6310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:12:34.053+03:00  INFO 6310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:12:34.067+03:00  INFO 6310 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:12:34.068+03:00  INFO 6310 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:12:34.069+03:00  INFO 6310 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:12:34.250+03:00  INFO 6310 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:12:34.519+03:00  INFO 6310 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T12:12:34.527+03:00  INFO 6310 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T12:12:34.527+03:00  INFO 6310 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T12:12:34.599+03:00  INFO 6310 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T12:12:34.599+03:00  INFO 6310 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1321 ms
+2023-01-20T12:12:34.673+03:00  INFO 6310 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:12:34.715+03:00  INFO 6310 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:12:34.826+03:00  WARN 6310 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:12:35.074+03:00  INFO 6310 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:12:36.045+03:00  INFO 6310 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:12:36.053+03:00  INFO 6310 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:12:36.432+03:00  WARN 6310 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:12:37.212+03:00  INFO 6310 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T12:12:37.224+03:00  INFO 6310 --- [main] com.building.elevator.Server             : Started Server in 4.339 seconds (process running for 4.84)
+2023-01-20T12:12:40.088+03:00  INFO 6310 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20T12:12:40.088+03:00  INFO 6310 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-20T12:12:40.090+03:00  INFO 6310 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-01-20T12:12:40.712+03:00  INFO 6310 --- [http-nio-8081-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 342 ms
+2023-01-20T12:24:06.297+03:00  INFO 6310 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:24:11.226+03:00  INFO 6493 --- [main] com.building.elevator.Server             : Starting Server using Java 18.0.1.1 with PID 6493 (/Users/mundiaem/Treadstone/SpringProjects/Elevator-API/target/classes started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:24:11.228+03:00  INFO 6493 --- [main] com.building.elevator.Server             : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:24:11.796+03:00  INFO 6493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:24:11.797+03:00  INFO 6493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:24:11.850+03:00  INFO 6493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:24:12.067+03:00  INFO 6493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:24:12.068+03:00  INFO 6493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:24:12.083+03:00  INFO 6493 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:24:12.085+03:00  INFO 6493 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:24:12.085+03:00  INFO 6493 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:24:12.270+03:00  INFO 6493 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:24:12.556+03:00  INFO 6493 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2023-01-20T12:24:12.563+03:00  INFO 6493 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-20T12:24:12.564+03:00  INFO 6493 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-20T12:24:12.632+03:00  INFO 6493 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-20T12:24:12.632+03:00  INFO 6493 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1352 ms
+2023-01-20T12:24:12.767+03:00  INFO 6493 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:24:12.817+03:00  INFO 6493 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:24:12.933+03:00  WARN 6493 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:24:13.190+03:00  INFO 6493 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:24:14.155+03:00  INFO 6493 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:24:14.163+03:00  INFO 6493 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:24:14.542+03:00  WARN 6493 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:24:15.333+03:00  INFO 6493 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2023-01-20T12:24:15.345+03:00  INFO 6493 --- [main] com.building.elevator.Server             : Started Server in 4.461 seconds (process running for 5.104)
+2023-01-20T12:24:37.570+03:00  INFO 6493 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-20T12:24:37.570+03:00  INFO 6493 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-20T12:24:37.572+03:00  INFO 6493 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-01-20T12:24:38.428+03:00  INFO 6493 --- [http-nio-8081-exec-4] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 318 ms
+2023-01-20T12:29:54.949+03:00  INFO 6584 --- [main] c.e.springbootopenapi.ServerTests        : Starting ServerTests using Java 18.0.1.1 with PID 6584 (started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:29:54.951+03:00  INFO 6584 --- [main] c.e.springbootopenapi.ServerTests        : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:29:55.616+03:00  INFO 6584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:29:55.617+03:00  INFO 6584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:29:55.796+03:00  INFO 6584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 170 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:29:56.139+03:00  INFO 6584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:29:56.140+03:00  INFO 6584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:29:56.153+03:00  INFO 6584 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:29:56.155+03:00  INFO 6584 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:29:56.155+03:00  INFO 6584 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:29:56.416+03:00  INFO 6584 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:29:56.598+03:00  INFO 6584 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:29:56.674+03:00  INFO 6584 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:29:56.846+03:00  WARN 6584 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:29:57.290+03:00  INFO 6584 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:29:58.490+03:00  INFO 6584 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:29:58.498+03:00  INFO 6584 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:29:59.144+03:00  WARN 6584 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:30:00.587+03:00  INFO 6584 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-01-20T12:30:00.587+03:00  INFO 6584 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-20T12:30:00.589+03:00  INFO 6584 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-01-20T12:30:00.698+03:00  INFO 6584 --- [main] c.e.springbootopenapi.ServerTests        : Started ServerTests in 6.225 seconds (process running for 7.521)
+2023-01-20T12:30:01.383+03:00  INFO 6584 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:30:44.443+03:00  INFO 6602 --- [main] c.e.springbootopenapi.ServerTests        : Starting ServerTests using Java 18.0.1.1 with PID 6602 (started by mundiaem in /Users/mundiaem/Treadstone/SpringProjects/Elevator-API)
+2023-01-20T12:30:44.445+03:00  INFO 6602 --- [main] c.e.springbootopenapi.ServerTests        : No active profile set, falling back to 1 default profile: "default"
+2023-01-20T12:30:45.056+03:00  INFO 6602 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:30:45.057+03:00  INFO 6602 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-20T12:30:45.247+03:00  INFO 6602 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180 ms. Found 2 JPA repository interfaces.
+2023-01-20T12:30:45.550+03:00  INFO 6602 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-20T12:30:45.551+03:00  INFO 6602 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-01-20T12:30:45.565+03:00  INFO 6602 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.BuildingRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:30:45.568+03:00  INFO 6602 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.building.elevator.repository.ElevatorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-01-20T12:30:45.568+03:00  INFO 6602 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfaces.
+2023-01-20T12:30:45.835+03:00  INFO 6602 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'persistenceConfig' of type [com.building.elevator.config.persistenceConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-01-20T12:30:45.997+03:00  INFO 6602 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-01-20T12:30:46.053+03:00  INFO 6602 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-01-20T12:30:46.217+03:00  WARN 6602 --- [main] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-01-20T12:30:46.614+03:00  INFO 6602 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-01-20T12:30:47.727+03:00  INFO 6602 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-20T12:30:47.736+03:00  INFO 6602 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-20T12:30:48.344+03:00  WARN 6602 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-20T12:30:49.762+03:00  INFO 6602 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-01-20T12:30:49.763+03:00  INFO 6602 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-01-20T12:30:49.764+03:00  INFO 6602 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2023-01-20T12:30:49.873+03:00  INFO 6602 --- [main] c.e.springbootopenapi.ServerTests        : Started ServerTests in 5.84 seconds (process running for 7.069)
+2023-01-20T12:30:50.525+03:00  INFO 6602 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

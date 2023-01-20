@@ -2,10 +2,9 @@ package com.building.elevator.services;
 
 import com.building.elevator.VO.BuildingResponseTemplateVO;
 import com.building.elevator.VO.ConfigureTemplateVO;
+import com.building.elevator.VO.DeleteTemplate;
 import com.building.elevator.model.Building;
-import com.building.elevator.model.Direction;
 import com.building.elevator.model.Elevator;
-import com.building.elevator.model.State;
 import com.building.elevator.repository.BuildingRepository;
 import com.building.elevator.repository.ElevatorRepository;
 import org.slf4j.Logger;
@@ -61,27 +60,25 @@ public class BuildingService {
             Building building = new Building();
             building.setTotalNoOfFloors(floor.getNo_of_floors());
             building.setNoOfElevators(floor.getNo_of_elevators());
+            Building res = save(building);
+
             List<Elevator> elevatorList = new ArrayList<>();
             for (int i = 0; i < floor.getNo_of_elevators(); i++) {
-                Elevator elevator = new Elevator();
-                elevator.setCurrentState(State.IDLE);
-                elevator.setCurrentFloor(0);
-                elevator.setCurrentDirection(Direction.UP);
-                elevatorList.add(elevator);
+               elevatorServices.initializeElevators(res);
 
             }
-            building.setElevators(elevatorList);
-            Building res = save(building);
 
             vo.setBuilding(res);
             vo.setResponse_status("Inserted the building floor and elevator configuration");
 
         }
-        if (vo.getBuilding().getNoOfElevators() > getCountElevators()) {
-            elevatorServices.initializeElevators();
 
-        }
         return vo;
+    }
+
+    public DeleteTemplate deleteConfig() {
+        buildingRepository.deleteAll();
+        return new DeleteTemplate("Successfully deleted building config", true);
     }
 
 }

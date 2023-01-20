@@ -1,6 +1,8 @@
 package com.essentialprogramming.springbootopenapi;
 
 import com.building.elevator.Server;
+import com.building.elevator.model.Direction;
+import com.building.elevator.model.State;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -32,6 +34,17 @@ class ServerTests {
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$.building.noOfElevators").value("4"))
                 .andExpect(jsonPath("$.building.totalNoOfFloors").value("20"));
+
+    }
+
+    @Test
+    public void testElevatorById() throws Exception {
+        mockMvc.perform(get("/v1/api/get_elevator_by_id?id=5")).andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$.elevator_id").value("5"))
+                .andExpect(jsonPath("$.currentFloor").value("0"))
+                .andExpect(jsonPath("$.currentDirection").value("UP"))
+                .andExpect(jsonPath("$.currentState").value("IDLE"));
 
     }
 }

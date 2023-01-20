@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestById {
-    long id;
+public class DeleteTemplate {
+    String message;
+    boolean success;
 }

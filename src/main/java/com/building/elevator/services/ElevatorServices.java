@@ -1,7 +1,7 @@
 package com.building.elevator.services;
 
 import com.building.elevator.VO.*;
-
+import com.building.elevator.model.Building;
 import com.building.elevator.model.Direction;
 import com.building.elevator.model.Elevator;
 import com.building.elevator.model.State;
@@ -10,30 +10,13 @@ import com.building.elevator.tasks.AddJobWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 import java.util.TreeSet;
 
 @Service
 public class ElevatorServices {
     @Autowired
     private ElevatorRepository elevatorRepository;
-
-    public Elevator saveElevator(Elevator elevators) {
-        return elevatorRepository.save(elevators);
-    }
-
-    public Elevator initializeElevators() {
-        Elevator elevator = new Elevator();
-        elevator.setCurrentDirection(Direction.UP);
-        elevator.setCurrentFloor(1);
-        elevator.setCurrentState(State.IDLE);
-        return saveElevator(elevator);
-    }
-    public ElevatorResponseTemplateVO findAll() {
-
-        return new ElevatorResponseTemplateVO(elevatorRepository.findAll(), "All Elevators") ;
-
-    }
     /**
      * jobs which are being processed
      */
@@ -47,9 +30,35 @@ public class ElevatorServices {
      */
     private TreeSet<Request> downPendingJobs = new TreeSet<>();
 
+    public Elevator saveElevator(Elevator elevators) {
+        return elevatorRepository.save(elevators);
+    }
+
+    public Elevator initializeElevators(Building building) {
+        Elevator elevator = new Elevator();
+        elevator.setCurrentDirection(Direction.UP);
+        elevator.setCurrentFloor(0);
+        elevator.setBuilding(building);
+        elevator.setCurrentState(State.IDLE);
+        return saveElevator(elevator);
+    }
+
+    public ElevatorResponseTemplateVO findAll() {
+
+        return new ElevatorResponseTemplateVO(elevatorRepository.findAll(), "All Elevators");
+
+    }
+
+    public ElevatorByIdResponseTemplate findElevatorByID(RequestById request) {
+        Optional<Elevator> elevator = elevatorRepository.findById(request.getId());
+        return new ElevatorByIdResponseTemplate(elevator.get().getElevator_id(), elevator.get().getCurrentFloor()
+                , elevator.get().getCurrentDirection(), elevator.get().getCurrentState());
+
+    }
+
     public void startElevator() {
         System.out.println("The Elevator has started functioning");
-        Elevator elevator= new Elevator();
+        Elevator elevator = new Elevator();
         while (true) {
 
             if (checkIfJob()) {
@@ -74,6 +83,7 @@ public class ElevatorServices {
             }
         }
     }
+
     public boolean checkIfJob() {
 
         if (currentJobs.isEmpty()) {
@@ -82,8 +92,9 @@ public class ElevatorServices {
         return true;
 
     }
+
     private void processUpRequest(Request request) {
-        Elevator elevator= new Elevator();
+        Elevator elevator = new Elevator();
 
         int startFloor = elevator.getCurrentFloor();
         // The elevator is not on the floor where the person has requested it i.e. source floor. So first bring it there.
@@ -119,10 +130,11 @@ public class ElevatorServices {
         }
 
     }
-    private void processDownRequest(Request request) {
-        Elevator elevator= new Elevator();
 
-        int startFloor =elevator.getCurrentFloor();
+    private void processDownRequest(Request request) {
+        Elevator elevator = new Elevator();
+
+        int startFloor = elevator.getCurrentFloor();
         if (startFloor < request.getExternalRequest().getSourceFloor()) {
             for (int i = startFloor; i <= request.getExternalRequest().getSourceFloor(); i++) {
                 try {
@@ -155,8 +167,9 @@ public class ElevatorServices {
         }
 
     }
+
     private boolean checkIfNewJobCanBeProcessed(Request currentRequest) {
-        Elevator elevator= new Elevator();
+        Elevator elevator = new Elevator();
 
         if (checkIfJob()) {
             if (elevator.getCurrentDirection() == Direction.UP) {
@@ -187,8 +200,9 @@ public class ElevatorServices {
         return false;
 
     }
+
     private void addPendingDownJobsToCurrentJobs() {
-        Elevator elevator= new Elevator();
+        Elevator elevator = new Elevator();
 
         if (!downPendingJobs.isEmpty()) {
             System.out.println("Pick a pending down job and execute it by putting in current job");
@@ -202,7 +216,7 @@ public class ElevatorServices {
     }
 
     private void addPendingUpJobsToCurrentJobs() {
-        Elevator elevator= new Elevator();
+        Elevator elevator = new Elevator();
 
         if (!upPendingJobs.isEmpty()) {
             System.out.println("Pick a pending up job and execute it by putting in current job");
@@ -216,8 +230,9 @@ public class ElevatorServices {
         }
 
     }
+
     public void addJob(Request request) {
-        Elevator elevator= new Elevator();
+        Elevator elevator = new Elevator();
 
         if (elevator.getCurrentState() == State.IDLE) {
             elevator.setCurrentState(State.MOVING);
@@ -255,7 +270,7 @@ public class ElevatorServices {
         }
     }
 
-    public void moveElevator(CallElevatorTemplateVO call){
+    public void moveElevator(CallElevatorTemplateVO call) {
         ExternalRequestTemplateVO er = new ExternalRequestTemplateVO(Direction.UP, call.getSourceFloor());
         InternalRequestTemplateVO ir = new InternalRequestTemplateVO(call.getDestinationFloor());
         Request request1 = new Request(ir, er);

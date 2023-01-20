@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeClass;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 @AutoConfigureMockMvc
 @SpringBootTest(classes = Server.class)
 class ServerTests {
@@ -26,11 +27,11 @@ class ServerTests {
     }
 
     @Test
-    public void testElevators() throws Exception {
-        mockMvc.perform(get("/v1/api/elevators")).andExpect(status().isOk())
-                .andExpect(content().contentType("application/json;charset=UTF-8"))
-                .andExpect(jsonPath("$.destinationFloor").value("5")).andExpect(jsonPath("$.designation").value("manager"))
-                .andExpect(jsonPath("$.sourceFloor").value("1")).andExpect(jsonPath("$.salary").value(3000));
+    public void testBuildingConfig() throws Exception {
+        mockMvc.perform(get("/v1/api/building_config")).andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"))
+                .andExpect(jsonPath("$.building.noOfElevators").value("4"))
+                .andExpect(jsonPath("$.building.totalNoOfFloors").value("20"));
 
     }
 }

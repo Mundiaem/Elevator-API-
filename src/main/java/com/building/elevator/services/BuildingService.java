@@ -8,6 +8,8 @@ import com.building.elevator.model.Elevator;
 import com.building.elevator.model.State;
 import com.building.elevator.repository.BuildingRepository;
 import com.building.elevator.repository.ElevatorRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ import java.util.List;
 
 @Service
 public class BuildingService {
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     public BuildingRepository buildingRepository;
 
@@ -39,8 +43,11 @@ public class BuildingService {
         return (int) elevatorRepository.count();
     }
 
-    public List<Building> getBuilding() {
-        return buildingRepository.findAll();
+    public BuildingResponseTemplateVO getBuilding() {
+        List<Building> buildingList = new ArrayList<>(buildingRepository.findAll());
+        LOGGER.debug(String.format("Getting the building config %s", buildingList.size()));
+
+        return new BuildingResponseTemplateVO(buildingList.get(0), "Building response");
     }
 
     public BuildingResponseTemplateVO checkThenInsert(ConfigureTemplateVO floor) {

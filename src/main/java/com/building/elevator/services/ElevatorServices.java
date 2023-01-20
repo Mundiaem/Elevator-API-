@@ -31,7 +31,7 @@ public class ElevatorServices {
     }
     public ElevatorResponseTemplateVO findAll() {
 
-        return new ElevatorResponseTemplateVO(elevatorRepository.findAll(), "") ;
+        return new ElevatorResponseTemplateVO(elevatorRepository.findAll(), "All Elevators") ;
 
     }
     /**

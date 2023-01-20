@@ -45,7 +45,18 @@ public class ElevatorController {
         return buildingService.checkThenInsert(floors);
 
     }
+    @GetMapping("/building_config")
+    @Operation(summary = "Get building ", tags = {"Get Building",},
+            responses = {
+                    @ApiResponse(responseCode = "200",
+                            description = "Get building configuration",
+                            content = @Content(mediaType = "application/json",
+                                    schema = @Schema(implementation = BuildingResponseTemplateVO.class)))
+            })
+    public BuildingResponseTemplateVO getBuildingConfiguration() {
+        return buildingService.getBuilding();
 
+    }
 
     @GetMapping(value = "/elevators", produces = MediaType.APPLICATION_JSON_VALUE)
     @Operation(summary = "Returns all elevators", tags = {"Elevator",},

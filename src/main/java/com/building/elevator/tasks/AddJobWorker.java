@@ -1,6 +1,7 @@
 package com.building.elevator.tasks;
 
 import com.building.elevator.VO.Request;
+import com.building.elevator.model.Elevator;
 import com.building.elevator.services.ElevatorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,7 +14,7 @@ public class AddJobWorker {
     private ElevatorServices elevatorServices;
     private Request request;
 
-    public AddJobWorker(Request request) {
+    public AddJobWorker( Request request) {
         this.request = request;
     }
 

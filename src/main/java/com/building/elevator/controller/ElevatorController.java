@@ -1,8 +1,12 @@
 package com.building.elevator.controller;
 
 import com.building.elevator.VO.*;
+import com.building.elevator.model.Direction;
+import com.building.elevator.model.Elevator;
+import com.building.elevator.model.State;
 import com.building.elevator.services.BuildingService;
 import com.building.elevator.services.ElevatorServices;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -13,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
@@ -98,10 +103,28 @@ public class ElevatorController {
     @Operation(summary = "Call The elevator", tags = {"Elevator",}
     )
     @ResponseBody
-    public Flux<Object> callTheElevator(CallElevatorTemplateVO call) {
+    public ResponseEntity<StreamingResponseBody> callTheElevator(CallElevatorTemplateVO call) {
         elevatorServices.moveElevator(call);
-        return Flux.interval(Duration.ofSeconds(1)).map(i -> "Elevator");
-    }
+        StreamingResponseBody responseBody = response -> {
+            for (int i = 1; i <= 10; i++) {
+                Elevator elevator= new Elevator();
+                elevator.setCurrentDirection(Direction.UP);
+                elevator.setCurrentState(State.MOVING);
+
+                ObjectMapper mapper = new ObjectMapper();
+                String jsonString = mapper.writeValueAsString(elevator) +"\n";
+                response.write(jsonString.getBytes());
+                response.flush();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_STREAM_JSON)
+                .body(responseBody);    }
 
 
 }

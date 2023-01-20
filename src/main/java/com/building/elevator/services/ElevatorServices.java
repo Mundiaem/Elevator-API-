@@ -7,6 +7,7 @@ import com.building.elevator.model.Elevator;
 import com.building.elevator.model.State;
 import com.building.elevator.repository.ElevatorRepository;
 import com.building.elevator.tasks.AddJobWorker;
+import com.building.elevator.tasks.ProcessJobWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -154,7 +155,7 @@ public class ElevatorServices {
 
         for (int i = startFloor - 1; i >= request.getInternalRequest().getDestinationFloor(); i--) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -274,6 +275,37 @@ public class ElevatorServices {
         ExternalRequestTemplateVO er = new ExternalRequestTemplateVO(Direction.UP, call.getSourceFloor());
         InternalRequestTemplateVO ir = new InternalRequestTemplateVO(call.getDestinationFloor());
         Request request1 = new Request(ir, er);
-        new AddJobWorker(request1);
+//        new AddJobWorker(request1);
+
+            /**
+             * Thread for starting the elevator
+             */
+            ProcessJobWorker processJobWorker = new ProcessJobWorker();
+            Thread t2 = new Thread(processJobWorker);
+            t2.start();
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+
+            /**
+             * Pass job to the elevator
+             */
+            new Thread((Runnable) new AddJobWorker(request1)).start();
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+        }
     }
-}
+
